@@ -241,7 +241,10 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController.Service
                     // invoke callback on a separate thread
                     // note that we copy callback to a local variable (to ensure its not null when the thread is invoked)
                     var callback = _resultCallback;
-                    ThreadPool.QueueUserWorkItem((ignored) => callback(result));
+                    ThreadPool.QueueUserWorkItem((ignored) =>
+                    {
+                        callback(result);
+                    });
                 }
 
                 Clear();

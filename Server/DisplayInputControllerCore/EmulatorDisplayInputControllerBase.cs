@@ -201,7 +201,7 @@ namespace WindowsPhoneTestFramework.Server.DisplayInputControllerCore
             Pause(PauseDurationAfterSendingKeyPress);
         }
 
-        public void TextEntry(string text)
+        public virtual void TextEntry(string text)
         {
             InvokeTrace("Warning - TextEntry method is not currently operational - not sure why");
             _inputSimulator.Keyboard.TextEntry(text);

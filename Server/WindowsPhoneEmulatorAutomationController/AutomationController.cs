@@ -248,12 +248,12 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
                 _hostController.Stop();
                 _hostController = null;
             }
-            if (DeviceController != null)
-            {
-                DeviceController.ReleaseDeviceConnection();
-                ShutDown();
-                DeviceController = null;
-            }
+            //if (DeviceController != null)
+            //{
+            //    DeviceController.ReleaseDeviceConnection();
+            //    // ShutDown();
+            //    DeviceController = null;
+            //}
         }
 
 

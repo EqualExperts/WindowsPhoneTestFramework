@@ -25,10 +25,10 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
         {
             Assert.IsTrue(Emu.ApplicationAutomationController.WaitForControl(named), "Failed to wait for control '{0}'",
                           named);
-            Assert.IsTrue(Emu.ApplicationAutomationController.WaitForControlToBeEnabled(named),
-                          "Failed to wait for control '{0}' to be enabled", named);
+            Assert.IsTrue( Emu.ApplicationAutomationController.SetFocus(named),
+                          "Failed to focus control '{0}'", named);
             Assert.IsTrue(Emu.ApplicationAutomationController.InvokeControlTapAction(named),
-                          "Failed to press control '{0}'", named);
+                        "Failed to press control '{0}'", named);
         }
 
         [StepDefinition("I press \"(.*)\" in the application bar")]

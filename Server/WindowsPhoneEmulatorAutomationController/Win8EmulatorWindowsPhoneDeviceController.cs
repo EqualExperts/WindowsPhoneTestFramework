@@ -22,9 +22,8 @@ using WindowsPhoneTestFramework.Server.Core.Results;
 using WindowsPhoneTestFramework.Server.Core.Tangibles;
 using WindowsPhoneTestFramework.Server.WindowsPhoneDeviceController;
 
-namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emulator
+namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emulator    /// <summary>
 {
-    /// <summary>
     /// The win 8 emulator windows phone device controller.
     /// </summary>
     internal class Win8EmulatorWindowsPhoneDeviceController : EmulatorWindowsPhoneDeviceController
@@ -80,7 +79,7 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
 
             string hostName = Dns.GetHostEntry("127.0.0.1").HostName + ":" + this.Port;
 
-            File.WriteAllLines(BddhostFilePath, new[] {hostName});
+            File.WriteAllLines(BddhostFilePath, new[] { hostName });
 
             store.SendFile(BddhostFilePath, BddhostFilePath, true);
 
@@ -154,7 +153,7 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
         /// </param>
         public override void SendKeyLongPress(KeyboardKeyCode virtualKeyCode, TimeSpan duration)
         {
-            var keyParams = new Dictionary<string, object> {{"keyCode", virtualKeyCode}};
+            var keyParams = new Dictionary<string, object> { { "keyCode", virtualKeyCode } };
 
             this.InvokeMethod("PressKey", keyParams);
 
@@ -175,9 +174,35 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
         {
             const string MethodName = "TypeKey";
 
-            var parameters = new Dictionary<string, object> {{"keyCode", hardwareButtonToKeyCode}};
+            var parameters = new Dictionary<string, object> { { "keyCode", hardwareButtonToKeyCode } };
 
             this.InvokeMethod(MethodName, parameters);
+        }
+
+        public override void TextEntry(string text)
+        {
+             var chars = text.ToCharArray();
+            for (int i = 0; i < chars.Length; i++)
+			{
+			 var ch = chars[i];
+             if (char.IsLetterOrDigit(ch))
+             {
+                 if (char.IsUpper(ch))
+                 {
+                     SendKeyPress(KeyboardKeyCode.LSHIFT);
+                 }
+
+                 var keyCode = String.Format("VK_{0}",ch.ToString().ToUpper());
+                 SendKeyPress((KeyboardKeyCode)Enum.Parse(typeof(KeyboardKeyCode),keyCode));
+             }
+             else
+             {
+                 if (ch == ' ')
+                 {
+                     SendKeyPress(KeyboardKeyCode.SPACE);
+                 }
+             }
+			}
         }
 
         #endregion
@@ -247,7 +272,7 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
 
             ManagementBaseObject outParams = this.keyboard.Value.InvokeMethod(methodName, inParams, null);
 
-            if ((UInt32) outParams["ReturnValue"] != 0)
+            if ((UInt32)outParams["ReturnValue"] != 0)
             {
                 throw new InvalidOperationException("methodFailed");
             }

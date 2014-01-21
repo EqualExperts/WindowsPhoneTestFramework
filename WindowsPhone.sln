@@ -1,21 +1,42 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{A23B82FA-2863-4968-A064-A4E0A9F77045}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationClient", "Client\AutomationClient\AutomationClient.csproj", "{3BA01FA4-AF6E-49B7-9C80-F9E2B197969C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{821EB794-D16E-42A3-B2E3-33DFE8247114}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{2D37EE0D-0245-4C97-89AB-25BA69EA03CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandLine", "CommandLine", "{B1352518-A11F-4F75-864F-33A994AC5342}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{7C73CE07-CDD7-4B63-BDE7-9614D2F47A66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example2", "Example2", "{5D7B138B-3992-4DEF-B887-9BB7FAD83040}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{79BC6B34-6D0C-4A06-8B37-4A26A926A659}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\nuget.exe = .nuget\nuget.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleUsingWPToolkit", "ExampleUsingWPToolkit", "{94855BC4-A473-4CC7-B831-06DC41184DB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B808DF8B-F823-4929-BE32-5C8C8937F874}"
+	ProjectSection(SolutionItems) = preProject
+		TestSettings1.testsettings = TestSettings1.testsettings
+		WindowsPhone.vsmdi = WindowsPhone.vsmdi
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationClient", "Client\AutomationClient\AutomationClient.csproj", "{3BA01FA4-AF6E-49B7-9C80-F9E2B197969C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp.Spec", "Example\ExampleApp.Spec\ExampleApp.Spec.csproj", "{61D0E0D1-52FD-4432-A522-68CFB6F23B18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "Example\ExampleApp\ExampleApp.csproj", "{430BC929-93BB-48D5-850D-5DA65E324FDD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{2D37EE0D-0245-4C97-89AB-25BA69EA03CE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Server\Utils\Utils.csproj", "{4C0765F2-A904-4E2E-8FFA-9DE0AA461804}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandLine", "CommandLine", "{B1352518-A11F-4F75-864F-33A994AC5342}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmuHost", "CommandLine\EmuHost\EmuHost.csproj", "{08B30BEC-3995-4508-81EC-E96E396177FC}"
 EndProject
@@ -47,41 +68,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidDisplayInputControll
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayInputControllerCore", "Server\DisplayInputControllerCore\DisplayInputControllerCore.csproj", "{A2C1E054-51F1-49FC-B602-98FFF0E9D218}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{7C73CE07-CDD7-4B63-BDE7-9614D2F47A66}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmuSteps", "Test\EmuSteps\EmuSteps.csproj", "{A1828C05-AE1C-45F0-8F86-1195E40E62D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentCore", "Server\FluentCore\FluentCore.csproj", "{56CC191E-4433-40A0-93C6-A893B97BCBC7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example2", "Example2", "{5D7B138B-3992-4DEF-B887-9BB7FAD83040}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter", "Example2\UnitConverter\UnitConverter.csproj", "{989480A7-6931-49FC-923F-35B722DD4704}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Spec", "Example2\UnitConverter.Spec\UnitConverter.Spec.csproj", "{B68A73FD-F634-45FA-A76B-26292518A795}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{79BC6B34-6D0C-4A06-8B37-4A26A926A659}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\nuget.exe = .nuget\nuget.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleUsingWPToolkit", "ExampleUsingWPToolkit", "{94855BC4-A473-4CC7-B831-06DC41184DB0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleUsingToolkit", "ExampleUsingWPToolkit\ExampleUsingToolkit\ExampleUsingToolkit.csproj", "{78FFE2FC-F2DF-406C-8C1E-1728E745B7D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleUsingToolkit.Spec", "ExampleUsingWPToolkit\ExampleUsingToolkit.Spec\ExampleUsingToolkit.Spec.csproj", "{2300DFA6-D689-4977-93DF-1D5D845525D2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B808DF8B-F823-4929-BE32-5C8C8937F874}"
-	ProjectSection(SolutionItems) = preProject
-		TestSettings1.testsettings = TestSettings1.testsettings
-		WindowsPhone.vsmdi = WindowsPhone.vsmdi
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp2", "ExampleApp2\ExampleApp2.csproj", "{F7BDD965-B1B0-45BC-89F1-2F53770275F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp2.Specs", "ExampleApp2.Specs\ExampleApp2.Specs.csproj", "{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = WindowsPhone.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BDD|Any CPU = BDD|Any CPU
 		BDD|ARM = BDD|ARM
@@ -573,6 +576,60 @@ Global
 		{2300DFA6-D689-4977-93DF-1D5D845525D2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2300DFA6-D689-4977-93DF-1D5D845525D2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2300DFA6-D689-4977-93DF-1D5D845525D2}.Release|x86.ActiveCfg = Release|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|Any CPU.Build.0 = Release|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|Any CPU.Deploy.0 = Release|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|ARM.ActiveCfg = Release|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|ARM.Build.0 = Release|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|ARM.Deploy.0 = Release|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|Mixed Platforms.ActiveCfg = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|Mixed Platforms.Build.0 = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|Mixed Platforms.Deploy.0 = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|x86.ActiveCfg = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|x86.Build.0 = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.BDD|x86.Deploy.0 = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|ARM.Build.0 = Debug|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|ARM.Deploy.0 = Debug|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|x86.ActiveCfg = Debug|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|x86.Build.0 = Debug|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Debug|x86.Deploy.0 = Debug|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|ARM.ActiveCfg = Release|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|ARM.Build.0 = Release|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|ARM.Deploy.0 = Release|ARM
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|Mixed Platforms.Build.0 = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|Mixed Platforms.Deploy.0 = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|x86.ActiveCfg = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|x86.Build.0 = Release|x86
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7}.Release|x86.Deploy.0 = Release|x86
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.BDD|Any CPU.ActiveCfg = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.BDD|Any CPU.Build.0 = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.BDD|ARM.ActiveCfg = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.BDD|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.BDD|Mixed Platforms.Build.0 = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.BDD|x86.ActiveCfg = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Release|ARM.ActiveCfg = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -581,6 +638,8 @@ Global
 		{3BA01FA4-AF6E-49B7-9C80-F9E2B197969C} = {A23B82FA-2863-4968-A064-A4E0A9F77045}
 		{61D0E0D1-52FD-4432-A522-68CFB6F23B18} = {821EB794-D16E-42A3-B2E3-33DFE8247114}
 		{430BC929-93BB-48D5-850D-5DA65E324FDD} = {821EB794-D16E-42A3-B2E3-33DFE8247114}
+		{F7BDD965-B1B0-45BC-89F1-2F53770275F7} = {821EB794-D16E-42A3-B2E3-33DFE8247114}
+		{F8897C57-57B6-43B5-B7D0-7D38A999B7E6} = {821EB794-D16E-42A3-B2E3-33DFE8247114}
 		{4C0765F2-A904-4E2E-8FFA-9DE0AA461804} = {2D37EE0D-0245-4C97-89AB-25BA69EA03CE}
 		{D781684B-6B06-4D2C-B6F1-3A281D7C3697} = {2D37EE0D-0245-4C97-89AB-25BA69EA03CE}
 		{C46C6F71-28D0-4151-8268-D5E851CDE9DC} = {2D37EE0D-0245-4C97-89AB-25BA69EA03CE}
@@ -603,6 +662,9 @@ Global
 		{B68A73FD-F634-45FA-A76B-26292518A795} = {5D7B138B-3992-4DEF-B887-9BB7FAD83040}
 		{78FFE2FC-F2DF-406C-8C1E-1728E745B7D4} = {94855BC4-A473-4CC7-B831-06DC41184DB0}
 		{2300DFA6-D689-4977-93DF-1D5D845525D2} = {94855BC4-A473-4CC7-B831-06DC41184DB0}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = WindowsPhone.vsmdi
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = CommandLine\EmuMac\EmuMac.csproj

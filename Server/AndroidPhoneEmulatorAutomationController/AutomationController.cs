@@ -50,7 +50,7 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.Android.Emulator
         public void Dispose()
         {
             Stop();
-            ShutDown();
+           // ShutDown();
             GC.SuppressFinalize(this);
         }
 

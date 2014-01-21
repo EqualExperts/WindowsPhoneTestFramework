@@ -70,6 +70,7 @@
     <Compile Include="Commands\ListBoxItemSelectCommand.cs" />
     <Compile Include="Commands\ScrollCommand.cs" />
     <Compile Include="Commands\GetIsEnabledCommand.cs" />
+    <Compile Include="Commands\EnterTextCommand.cs" />
     <Compile Include="Commands\SetValueCommand.cs" />
     <Compile Include="Commands\GetValueCommand.cs" />
     <Compile Include="Commands\GenericCommand.cs" />

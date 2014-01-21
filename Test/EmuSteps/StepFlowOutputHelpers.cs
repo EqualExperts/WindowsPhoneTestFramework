@@ -29,6 +29,7 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps
 
         public static void Write(WriteType type, string message, params object[] args)
         {
+            message = message.Replace("{","{{").Replace("}","}}");
             var template = string.Format(" \t{0}:->{1} \t\t \t", type, message);
             Console.WriteLine(string.Format(template, args));
         }

@@ -12,6 +12,7 @@
 using System;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using WindowsPhoneTestFramework.Server.Core.Tangibles;
 
 namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
 {
@@ -56,6 +57,23 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
             Emu.ApplicationAutomationController.SetFocus(controlName);
 
             Assert.True(Emu.ApplicationAutomationController.SetTextOnControl(controlName, text));
+        }
+
+        [StepDefinition(@"I type ""([^\""]*)"" into the control ""([^\""]*)""")]
+        [StepDefinition(@"I type ""([^\""]*)"" into the control ""([^\""]*)""")]
+        public void ITypeTextAndHitReturn(string text, string control)
+        {
+            var controlName = ControlName(control, string.Empty);
+
+            Emu.ApplicationAutomationController.WaitForControl(controlName, TimeSpan.FromSeconds(30));
+
+            Emu.ApplicationAutomationController.WaitForControlToBeEnabled(controlName, timeout: TimeSpan.FromSeconds(30));
+
+            Emu.ApplicationAutomationController.SetFocus(controlName);
+
+            Emu.DisplayInputController.EnsureHardwareKeyboardEnabled();
+
+            Emu.DisplayInputController.TextEntry(text);
         }
     }
 }

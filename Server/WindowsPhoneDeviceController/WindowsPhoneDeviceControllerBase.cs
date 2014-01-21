@@ -9,13 +9,12 @@
 // Author - Stuart Lodge, Cirrious. http://www.cirrious.com
 // ------------------------------------------------------------------------
 
+using Microsoft.SmartDevice.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Microsoft.SmartDevice.Connectivity;
-
 using WindowsPhoneTestFramework.Server.Core;
 using WindowsPhoneTestFramework.Server.Core.Results;
 using WindowsPhoneTestFramework.Server.DeviceController;
@@ -252,6 +251,7 @@ namespace WindowsPhoneTestFramework.Server.WindowsPhoneDeviceController
 
                 throw ex;
             }
+
 
             InvokeTrace("application stopped");
             return StopResult.Success;
