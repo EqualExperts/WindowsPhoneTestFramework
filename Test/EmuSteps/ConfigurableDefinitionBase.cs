@@ -15,9 +15,9 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps
 {
     public class ConfigurableDefinitionBase : Steps
     {
-        private readonly IConfiguration _configuration;
+        private  IConfiguration _configuration;
 
-        protected IConfiguration Configuration
+        protected  IConfiguration Configuration
         {
             get { return _configuration; }
         }
