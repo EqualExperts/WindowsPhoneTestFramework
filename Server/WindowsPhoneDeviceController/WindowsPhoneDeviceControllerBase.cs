@@ -80,6 +80,10 @@ namespace WindowsPhoneTestFramework.Server.WindowsPhoneDeviceController
                 InvokeTrace(string.Format("looking for device '{0}'", WpDeviceNameBase));
                 var devices = phoneSdk.GetDevices();
                 InvokeTrace(string.Format("{0} devices found", (object) devices.Count));
+                foreach (var d in devices)
+                {
+                    InvokeTrace(string.Format("device name: {0}", d.Name));
+                }
                 var device = devices.FirstOrDefault(d => d.Name == WpDeviceNameBase);
 
                 if (device == null)

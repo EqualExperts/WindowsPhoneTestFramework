@@ -65,9 +65,7 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
         {
             var controlName = ControlName(control, string.Empty);
 
-            Emu.ApplicationAutomationController.WaitForControl(controlName, TimeSpan.FromSeconds(30));
-
-            Emu.ApplicationAutomationController.WaitForControlToBeEnabled(controlName, timeout: TimeSpan.FromSeconds(30));
+            Emu.ApplicationAutomationController.WaitForControl(controlName, TimeSpan.FromSeconds(5));
 
             Emu.ApplicationAutomationController.SetFocus(controlName);
 
