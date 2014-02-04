@@ -483,6 +483,8 @@ namespace WindowsPhoneTestFramework.Server.WindowsPhoneDeviceController
             }
              */
 
+            app.TerminateRunningInstances();
+            
             app.Launch();
             InvokeTrace("app launched");
             return StartResult.Success;
