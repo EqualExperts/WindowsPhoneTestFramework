@@ -126,5 +126,19 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps
                 context.Remove(EmuControllerKey);
             }
         }
+
+        public static void StopHost(ScenarioContext context)
+        {
+            Assert.That(context != null);
+
+            lock (context)
+            {
+                IAutomationController emu = null;
+                if (!context.TryGetValue(EmuControllerKey, out emu))
+                    return;
+
+                emu.Stop();
+            }
+        }
     }
 }

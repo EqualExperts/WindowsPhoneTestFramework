@@ -35,7 +35,12 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps
             get { return StepFlowContextHelpers.GetEmuAutomationController(ScenarioContext.Current, Configuration); }
         }
 
-        protected void DisposeOfEmu()
+        protected static void StopHost()
+        {
+            StepFlowContextHelpers.StopHost(ScenarioContext.Current);
+        }
+
+        protected static  void ShutdownEmu()
         {
             StepFlowContextHelpers.DisposeOfEmu(ScenarioContext.Current);
         }

@@ -24,9 +24,15 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.HookDefinitions
         */
 
         [AfterScenario]
-        public void AfterAnyScenarioMakeSureEmuIsDisposed()
+        public void AfterAnyScenarioStopHost()
         {
-            DisposeOfEmu();
+            StopHost();
+        }
+
+        [AfterFeature]
+        public static void AfterFeatureShutdownEmulator()
+        {
+            ShutdownEmu();
         }
     }
 }

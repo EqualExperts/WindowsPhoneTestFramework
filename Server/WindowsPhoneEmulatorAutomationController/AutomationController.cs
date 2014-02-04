@@ -159,6 +159,7 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
             }
 
             Stop();
+            ShutDown();
             GC.SuppressFinalize(this);
         }
 
@@ -248,12 +249,6 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
                 _hostController.Stop();
                 _hostController = null;
             }
-            if (DeviceController != null)
-            {
-                DeviceController.ReleaseDeviceConnection();
-                ShutDown();
-                DeviceController = null;
-            }
         }
 
 
@@ -261,7 +256,9 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
         {
             if (DeviceController != null)
             {
+                DeviceController.ReleaseDeviceConnection();
                 DeviceController.ForceDeviceShutDown();
+                DeviceController = null;
             }
         }
     }
