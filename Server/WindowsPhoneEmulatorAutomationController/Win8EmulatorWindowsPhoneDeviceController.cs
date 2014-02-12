@@ -116,14 +116,19 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
         /// </returns>
         public static ManagementObject GetEmulator(ManagementScope scope)
         {
-            string query = string.Format("select * from Msvm_ComputerSystem where EnabledState=2");
+            string query = string.Format("select * from  Msvm_VirtualSystemManagementService where EnabledState=2");
 
             var searcher = new ManagementObjectSearcher(scope, new ObjectQuery(query));
 
-            ManagementObjectCollection computers = searcher.Get();
+            ManagementObjectCollection virtualManagementServices = searcher.Get();
+            foreach (ManagementObject obj in virtualManagementServices)
+            {
+                var computers = obj.GetRelated();
+                Guid dummy;
+                return computers.Cast<ManagementObject>().First(comp => Guid.TryParse(comp["Name"].ToString(), out dummy));
 
-            Guid dummy;
-            return computers.Cast<ManagementObject>().First(comp => Guid.TryParse(comp["Name"].ToString(), out dummy));
+            }
+            return null;
         }
 
         /// <summary>
@@ -181,28 +186,28 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
 
         public override void TextEntry(string text)
         {
-             var chars = text.ToCharArray();
+            var chars = text.ToCharArray();
             for (int i = 0; i < chars.Length; i++)
-			{
-			 var ch = chars[i];
-             if (char.IsLetterOrDigit(ch))
-             {
-                 if (char.IsUpper(ch))
-                 {
-                     SendKeyPress(KeyboardKeyCode.LSHIFT);
-                 }
+            {
+                var ch = chars[i];
+                if (char.IsLetterOrDigit(ch))
+                {
+                    if (char.IsUpper(ch))
+                    {
+                        SendKeyPress(KeyboardKeyCode.LSHIFT);
+                    }
 
-                 var keyCode = String.Format("VK_{0}",ch.ToString().ToUpper());
-                 SendKeyPress((KeyboardKeyCode)Enum.Parse(typeof(KeyboardKeyCode),keyCode));
-             }
-             else
-             {
-                 if (ch == ' ')
-                 {
-                     SendKeyPress(KeyboardKeyCode.SPACE);
-                 }
-             }
-			}
+                    var keyCode = String.Format("VK_{0}", ch.ToString().ToUpper());
+                    SendKeyPress((KeyboardKeyCode)Enum.Parse(typeof(KeyboardKeyCode), keyCode));
+                }
+                else
+                {
+                    if (ch == ' ')
+                    {
+                        SendKeyPress(KeyboardKeyCode.SPACE);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -217,7 +222,7 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
         /// </returns>
         private static ManagementObject GetComputerKeyboard()
         {
-            var scope = new ManagementScope(@"root\virtualization", null);
+            var scope = new ManagementScope(@"root\virtualization\v2", null);
             ManagementObject vm = GetEmulator(scope);
             return GetComputerKeyboard(vm);
         }
