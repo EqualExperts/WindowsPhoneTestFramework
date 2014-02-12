@@ -29,10 +29,10 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.HookDefinitions
             StopHost();
         }
 
-        [AfterFeature]
-        public static void AfterFeatureShutdownEmulator()
-        {
-            ShutdownEmu();
-        }
+        //[AfterFeature]
+        //public static void AfterFeatureShutdownEmulator()
+        //{
+        //    ShutdownEmu();
+        //}
     }
 }
