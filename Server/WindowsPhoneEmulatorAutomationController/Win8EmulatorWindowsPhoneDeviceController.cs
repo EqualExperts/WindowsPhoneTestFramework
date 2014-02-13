@@ -116,18 +116,30 @@ namespace WindowsPhoneTestFramework.Server.AutomationController.WindowsPhone.Emu
         /// </returns>
         public static ManagementObject GetEmulator(ManagementScope scope)
         {
-            string query = string.Format("select * from  Msvm_VirtualSystemManagementService where EnabledState=2");
-
+            string query = string.Format("select * from Msvm_ComputerSystem where EnabledState=2");
             var searcher = new ManagementObjectSearcher(scope, new ObjectQuery(query));
-
-            ManagementObjectCollection virtualManagementServices = searcher.Get();
-            foreach (ManagementObject obj in virtualManagementServices)
+            ManagementObjectCollection computers = null;
+            try
             {
-                var computers = obj.GetRelated();
+                computers = searcher.Get();
+            }
+            catch (Exception)
+            {
+                // Windows 8.1 flow
+                query = string.Format("select * from  Msvm_VirtualSystemManagementService where EnabledState=2");
+                searcher = new ManagementObjectSearcher(scope, new ObjectQuery(query));
+                var virtualManagementServices = searcher.Get();
+                foreach (ManagementObject obj in virtualManagementServices)
+                {
+                    computers = obj.GetRelated();
+                }
+            }
+            if (computers != null && computers.Count > 0)
+            {
                 Guid dummy;
                 return computers.Cast<ManagementObject>().First(comp => Guid.TryParse(comp["Name"].ToString(), out dummy));
-
             }
+
             return null;
         }
 
