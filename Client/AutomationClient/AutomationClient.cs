@@ -78,7 +78,8 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient
             {
                 try
                 {
-                    if (isServerAvailable)
+                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                    if (isServerAvailable) 
                         GetAndProcessNextCommand();
 #if USE_CONNECTION_CHECK_BEFORE_STARTING
                     else

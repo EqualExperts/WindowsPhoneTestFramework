@@ -182,7 +182,7 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
             {
                 if (ex.GetType().Name.EndsWith("SmartDeviceException"))
                 {
-                    NUnit.Framework.Assert.Ignore("SmartDeviceException in test setup " + ex.Message);
+                    NUnit.Framework.Assert.Ignore("SmartDeviceException in test setup " + ex);
                 }
                 else
                 {
