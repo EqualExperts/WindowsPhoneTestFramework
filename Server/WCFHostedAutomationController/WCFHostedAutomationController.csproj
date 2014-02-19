@@ -54,6 +54,7 @@
     <Compile Include="Commands\ControlContainsImageCommand.cs" />
     <Compile Include="Commands\GetVisualStateCommand.cs" />
     <Compile Include="Commands\GetPerformanceCommand.cs" />
+    <Compile Include="Commands\LookForControlCommand.cs" />
     <Compile Include="Commands\ScrollIntoViewCommand.cs" />
     <Compile Include="Commands\SetApplicationSettingsCommand.cs" />
     <Compile Include="Commands\GetApplicationSettingsCommand.cs" />

@@ -55,7 +55,7 @@ namespace ExampleApp2
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
-            WindowsPhoneTestFramework.Client.AutomationClient.Automation.Instance.Initialise("http://192.168.3.138:8085/phoneAutomation/automate");
+            WindowsPhoneTestFramework.Client.AutomationClient.Automation.Instance.Initialise("http://192.168.2.183:8085/phoneAutomation/automate");
 
         }
 

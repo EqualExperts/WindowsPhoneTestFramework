@@ -22,3 +22,8 @@ Scenario: Main Page loads again after a few seconds
 	Then I see the control "Output" contains "Hello World"
 	And take a picture
 
+Scenario: Get control by properties
+	Then I see a TextBlock with following properties
+		| Text  |
+		| Hello |
+

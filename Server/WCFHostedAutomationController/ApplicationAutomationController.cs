@@ -49,7 +49,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         public string GetIsChecked(string control)
         {
-            var command = new GetCheckedStatusCommand {AutomationIdentifier = CreateAutomationIdentifier(control)};
+            var command = new GetCheckedStatusCommand { AutomationIdentifier = CreateAutomationIdentifier(control) };
             var result = SyncExecuteCommand(command);
 
             var successResult = result as SuccessResult;
@@ -76,7 +76,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         public bool LookForText(string text)
         {
-            var command = new LookForTextCommand {Text = text};
+            var command = new LookForTextCommand { Text = text };
             var result = SyncLookExecuteCommand(command);
             return result is SuccessResult;
         }
@@ -90,11 +90,11 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
         {
             return WaitForTestSuccess(
                 () =>
-                    {
-                        string txt;
-                        var success = TryGetValueFromControl(controlId, out txt, ordinal, parentId);
-                        return success && txt != text;
-                    },
+                {
+                    string txt;
+                    var success = TryGetValueFromControl(controlId, out txt, ordinal, parentId);
+                    return success && txt != text;
+                },
                 timeout);
         }
 
@@ -284,8 +284,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         public bool ScrollIntoViewListItem(string controlWithinItemId)
         {
-            var command = new ListBoxItemScrollIntoViewCommand
-                {AutomationIdentifier = CreateAutomationIdentifier(controlWithinItemId),};
+            var command = new ListBoxItemScrollIntoViewCommand { AutomationIdentifier = CreateAutomationIdentifier(controlWithinItemId), };
             var result = SyncExecuteCommand(command);
             return result is SuccessResult;
         }
@@ -347,10 +346,10 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
             }
 
             return new RectangleF(
-                (float) positionResult.Left,
-                (float) positionResult.Top,
-                (float) positionResult.Width,
-                (float) positionResult.Height);
+                (float)positionResult.Left,
+                (float)positionResult.Top,
+                (float)positionResult.Width,
+                (float)positionResult.Height);
         }
 
         public bool SetFocus(string controlId, int ordinal, string parentId)
@@ -383,7 +382,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         private ProgressValues GetProgressOfAutomationIdentifier(AutomationIdentifier automationIdentifier)
         {
-            var command = new GetProgressCommand {AutomationIdentifier = automationIdentifier};
+            var command = new GetProgressCommand { AutomationIdentifier = automationIdentifier };
             var result = SyncExecuteCommand(command);
             var progressResult = result as ProgressResult;
             if (progressResult == null)
@@ -404,11 +403,11 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
             return WaitForTestSuccess(
                 () =>
-                    {
-                        bool isEnabled;
-                        TryGetControlIsEnabled(controlId, out isEnabled, ordinal, parentId);
-                        return isEnabled;
-                    }, timeout.Value);
+                {
+                    bool isEnabled;
+                    TryGetControlIsEnabled(controlId, out isEnabled, ordinal, parentId);
+                    return isEnabled;
+                }, timeout.Value);
         }
 
         public bool TryGetControlIsEnabled(string controlId, out bool isEnabled, int ordinal, string parentId)
@@ -456,7 +455,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         public bool TryGetApplicationSettings(string key, out string value)
         {
-            var command = new GetApplicationSettingCommand {Key = key};
+            var command = new GetApplicationSettingCommand { Key = key };
             var result = SyncExecuteCommand(command);
             var successResult = result as SuccessResult;
             if (successResult == null)
@@ -514,7 +513,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
                     var islong = long.TryParse(pair.Value, out v);
                     if (islong)
                     {
-                        Console.WriteLine("{0} : {1}", pair.Key, string.Format("{0}MB", v/1000000));
+                        Console.WriteLine("{0} : {1}", pair.Key, string.Format("{0}MB", v / 1000000));
                     }
                     else
                     {
@@ -528,7 +527,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         public bool SetApplicationSettings(string key, string value)
         {
-            var command = new SetApplicationSettingCommand {Key = key, Value = value};
+            var command = new SetApplicationSettingCommand { Key = key, Value = value };
             var result = SyncExecuteCommand(command);
             return result is SuccessResult;
         }
@@ -547,7 +546,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
                 Console.WriteLine("{0} : {1}", pair.Key, pair.Value);
             }
 
-            var command = new SetApplicationSettingsCommand {Settings = values};
+            var command = new SetApplicationSettingsCommand { Settings = values };
 
             var result = this.SyncExecuteCommand(command);
 
@@ -556,21 +555,21 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         public bool StopBackgroundAudio()
         {
-            var command = new BackgroundAudioCommand {Command = AudioInstruction.Stop};
+            var command = new BackgroundAudioCommand { Command = AudioInstruction.Stop };
 
             return SyncExecuteCommand(command) is SuccessResult;
         }
 
         public bool InvokeAppBarTap(string text)
         {
-            var command = new InvokeAppBarTapCommand {AutomationIdentifier = CreateAutomationIdentifier(text)};
+            var command = new InvokeAppBarTapCommand { AutomationIdentifier = CreateAutomationIdentifier(text) };
 
             return SyncExecuteCommand(command) is SuccessResult;
         }
 
         public bool LookForAppBarItem(string text)
         {
-            var command = new LookForAppBarItemCommand {AutomationIdentifier = CreateAutomationIdentifier(text)};
+            var command = new LookForAppBarItemCommand { AutomationIdentifier = CreateAutomationIdentifier(text) };
             return SyncExecuteCommand(command) is SuccessResult;
         }
 
@@ -582,7 +581,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         public bool Navigate(string direction)
         {
-            var command = new NavigateCommand {Direction = direction};
+            var command = new NavigateCommand { Direction = direction };
 
             return SyncExecuteCommand(command) is SuccessResult;
         }
@@ -632,7 +631,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         private static AutomationIdentifier CreateTextOnlyAutomationIdentifier(string text)
         {
-            return new AutomationIdentifier {DisplayedText = text};
+            return new AutomationIdentifier { DisplayedText = text };
         }
 
         private AutomationIdentifier CreateControlOrTextAutomationIdentifier(string textOrControlId)
@@ -644,7 +643,7 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
 
         private AutomationIdentifier CreateAutomationIdentifier(string id)
         {
-            return (! string.IsNullOrEmpty(id)) ? new AutomationIdentifier(id, automationIdentification) : null;
+            return (!string.IsNullOrEmpty(id)) ? new AutomationIdentifier(id, automationIdentification) : null;
         }
 
         private bool LookForAutomationIdentifer(AutomationIdentifier controlIdentifier, int ordinal,
@@ -668,36 +667,51 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
             return result.Width + result.Height > 0.0;
         }
 
-        private ResultBase SyncLookExecuteCommand(CommandBase command)
+        public bool LookForControlWithProperties(string controlType
+            , Dictionary<string, object> properties)
+        {
+            var command = new LookForControlCommand
+            {
+                Properties = properties,
+                ControlType = controlType
+            };
+
+            var result = SyncExecuteCommand(command) as SuccessResult;
+
+            return result != null;
+        }
+
+
+        public ResultBase SyncLookExecuteCommand(CommandBase command)
         {
             ResultBase toReturn = null;
             var manualResetEvent = new ManualResetEvent(false);
             serviceControl.AddCommand(
                 command,
                 result =>
-                    {
-                        toReturn = result;
-                        LogFailedMessage(toReturn);
-                        manualResetEvent.Set();
-                    },
+                {
+                    toReturn = result;
+                    LogFailedMessage(toReturn);
+                    manualResetEvent.Set();
+                },
                 LookSendCommandWithin,
                 LookExpectResultWithin);
             manualResetEvent.WaitOne();
             return toReturn;
         }
 
-        private ResultBase SyncExecuteCommand(CommandBase command)
+        public ResultBase SyncExecuteCommand(CommandBase command)
         {
             ResultBase toReturn = null;
             var manualResetEvent = new ManualResetEvent(false);
             serviceControl.AddCommand(
                 command,
                 result =>
-                    {
-                        toReturn = result;
-                        LogFailedMessage(toReturn);
-                        manualResetEvent.Set();
-                    });
+                {
+                    toReturn = result;
+                    LogFailedMessage(toReturn);
+                    manualResetEvent.Set();
+                });
             manualResetEvent.WaitOne();
             return toReturn;
         }
@@ -803,5 +817,8 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
         }
 
         #endregion
+
+
+
     }
 }

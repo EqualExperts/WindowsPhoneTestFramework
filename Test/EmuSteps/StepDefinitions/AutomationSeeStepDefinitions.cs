@@ -13,6 +13,7 @@ using System;
 using System.Threading;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using System.Collections.Generic;
 
 namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
 {
@@ -132,7 +133,7 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
                     setFocus = Emu.ApplicationAutomationController.SetFocus(controlName, index);
                 }
 
-                Assert.IsTrue(setFocus, "Failed to set focus to control '{0}'", new object[] {controlName});
+                Assert.IsTrue(setFocus, "Failed to set focus to control '{0}'", new object[] { controlName });
             }
         }
 
@@ -142,7 +143,7 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
         {
             var controlName = ControlName(named, type);
             Assert.IsTrue(Emu.ApplicationAutomationController.WaitForControl(controlName),
-                          "The control '{0}' is not on the page", new object[] {controlName});
+                          "The control '{0}' is not on the page", new object[] { controlName });
             Assert.True(IsControlVisible(controlName), "The control '{0}' is not visible ", controlName);
         }
 
@@ -197,7 +198,7 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
             if (!string.IsNullOrEmpty(parentName))
             {
                 Assert.IsTrue(Emu.ApplicationAutomationController.WaitForControl(controlName, 0, parentName),
-                              "The control '{0}' within the parent {2} is not on the page", new object[] {controlName});
+                              "The control '{0}' within the parent {2} is not on the page", new object[] { controlName });
             }
 
             Emu.ApplicationAutomationController.TryGetTextFromControl(controlName, out controlText, ordinal, parentName);
@@ -239,7 +240,7 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
         [StepDefinition("I see a message box with \"([^\\\"]*)\" title and \"([^\\\"]*)\" button")]
         public void SeeAMessageBoxWithTheTitleAndButton(string title, string button)
         {
-            var buttons = new[] {button};
+            var buttons = new[] { button };
             var result = Emu.ApplicationAutomationController.WaitForMessageBox(title, null, buttons);
 
             Assert.IsTrue(result, "A message box with the title '{0}' and button '{1}' was not found", title, button);
@@ -248,11 +249,28 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
         [StepDefinition("I see a message box with \"([^\\\"]*)\" title and \"([^\\\"]*)\", \"([^\\\"]*)\" buttons")]
         public void SeeAMessageBoxWithTheTitleAndButtons(string title, string button1, string button2)
         {
-            var buttons = new[] {button1, button2};
+            var buttons = new[] { button1, button2 };
             var result = Emu.ApplicationAutomationController.WaitForMessageBox(title, null, buttons);
 
             Assert.IsTrue(result, "A message box with the title '{0}' and buttons '{1} {2}' was not found", title,
                           button1, button2);
         }
+
+
+        //[StepDefinition("I see a TextBlock with following properties")]
+        //public void SeeAMessageBoxWithTheTitleAndButtons(Table table)
+        //{
+        //    foreach (var row in table.Rows)
+        //    {
+        //        var dict = new Dictionary<string, object>();
+        //        foreach (var key in row.Keys)
+        //        {
+        //            dict.Add(key, row[key]);
+        //        }
+        //        var result = Emu.ApplicationAutomationController.LookForControlWithProperties(typeof(int).ToString,dict);
+
+        //        Assert.IsTrue(result, "TextBlock with properties not found");
+        //    }
+        //}
     }
 }

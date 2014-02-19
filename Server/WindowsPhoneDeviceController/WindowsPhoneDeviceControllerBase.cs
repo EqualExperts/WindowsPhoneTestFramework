@@ -466,7 +466,7 @@ namespace WindowsPhoneTestFramework.Server.WindowsPhoneDeviceController
         {
             var windowsApplicationDefinition = ToWindowsPhoneApplicationDefinition(applicationDefinition);
 
-            InvokeTrace("launching app...");
+            InvokeTrace("launching app..." + windowsApplicationDefinition.ProductGuid);
             var app = SafeGetApplication(windowsApplicationDefinition.ProductGuid);
             if (app == null)
             {

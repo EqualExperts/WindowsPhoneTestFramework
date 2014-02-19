@@ -105,10 +105,10 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient.Helpers
             if (propertyInfo == null)
                 return default(T);
 
-            if (!typeof (T).IsAssignableFrom(propertyInfo.PropertyType))
+            if (!typeof(T).IsAssignableFrom(propertyInfo.PropertyType))
                 return default(T);
 
-            return (T) propertyInfo.GetValue(target, new object[0]);
+            return (T)propertyInfo.GetValue(target, new object[0]);
         }
 
         public static bool SetElementProperty<T>(object target, string name, T value)
@@ -118,7 +118,7 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient.Helpers
             if (propertyInfo == null)
                 return false;
 
-            if (!typeof (T).IsAssignableFrom(propertyInfo.PropertyType))
+            if (!typeof(T).IsAssignableFrom(propertyInfo.PropertyType))
                 return false;
 
             propertyInfo.SetValue(target, value, new object[0]);
@@ -399,7 +399,7 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient.Helpers
                 var objectPropertyValue = GetElementProperty<object>(frameworkElement, objectName);
                 if (objectPropertyValue != null
                     && objectPropertyValue is string)
-                    return (string) objectPropertyValue;
+                    return (string)objectPropertyValue;
             }
 
             return null;
@@ -429,6 +429,41 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient.Helpers
             }
 
             return result;
+        }
+
+        public static bool FindControlByType(Type controlType,DependencyObject parent, Dictionary<string, object> properties)
+        {
+            if (parent!=null 
+                && parent.GetType().Equals(controlType))
+            {
+                foreach (var key in properties.Keys)
+                {
+                    try
+                    {
+                        var propertyInfo = parent.GetType().GetProperty(key);
+                        if (!propertyInfo.GetValue(parent).Equals(properties[key]))
+                        {
+                            return false;
+                        }
+                    }
+                    catch (NullReferenceException)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                if (FindControlByType(controlType, child, properties))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public static Rect Position(FrameworkElement element)

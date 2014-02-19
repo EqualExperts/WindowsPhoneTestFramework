@@ -127,6 +127,8 @@ namespace WindowsPhoneTestFramework.Server.Core
 
         bool WaitIsAlive();
 
+        bool LookForControlWithProperties(string controlType, Dictionary<string, object> properties);
+
         #endregion
 
         string GetIsChecked(string control);

@@ -117,6 +117,7 @@
     <Compile Include="Remote\ControlContainsImageCommand.cs" />
     <Compile Include="Remote\GetPerformanceCommand.cs" />
     <Compile Include="Remote\GetIsCheckedCommand.cs" />
+    <Compile Include="Remote\LookForControlCommand.cs" />
     <Compile Include="Remote\ScrollIntoViewCommand.cs" />
     <Compile Include="Remote\BackgroundAudioCommand.cs" />
     <Compile Include="Remote\SetApplicationSettingsCommand.cs" />
