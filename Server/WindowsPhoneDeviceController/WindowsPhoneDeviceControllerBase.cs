@@ -482,8 +482,14 @@ namespace WindowsPhoneTestFramework.Server.WindowsPhoneDeviceController
                 return StartResult.AlreadyRunning;
             }
              */
-
-            app.TerminateRunningInstances();
+            try
+            {
+                app.TerminateRunningInstances();
+            }
+            catch (Exception ex)
+            {
+                InvokeTrace("could not close instace {0}",ex);
+            }
             
             app.Launch();
             InvokeTrace("app launched");

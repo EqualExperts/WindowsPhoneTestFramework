@@ -9,6 +9,8 @@
 //  Author - Stuart Lodge, Cirrious. http://www.cirrious.com
 //  ------------------------------------------------------------------------
 
+using System.Threading;
+using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace WindowsPhoneTestFramework.Test.EmuSteps.HookDefinitions
@@ -29,10 +31,16 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.HookDefinitions
             StopHost();
         }
 
-        //[AfterFeature]
-        //public static void AfterFeatureShutdownEmulator()
-        //{
-        //    ShutdownEmu();
-        //}
+        [AfterFeature]
+        public static void AfterFeatureShutdownEmulator()
+        {
+            // Delay test runner close
+           var t = new Task(() =>
+            {
+                Thread.Sleep(2000);
+            });
+           t.Start();
+           t.Wait();
+        }
     }
 }
