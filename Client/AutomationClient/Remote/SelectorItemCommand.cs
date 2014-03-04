@@ -29,60 +29,62 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient.Remote
                 return;
             }
 
-            var item = selector.Items[IndexOfItemToSelect];
+            selector.SelectedIndex = IndexOfItemToSelect;
 
-            var identifier = new AutomationIdentifier {DisplayedText = item.ToString()};
-            var listBoxItem = AutomationElementFinder.FindElement(identifier);
-            if (listBoxItem == null)
-            {
-                SendNotFoundResult(string.Format("SelectorItemCommand: Could not find the list box item element : {0}",
-                                                 identifier.ToIdOrName()));
-                return;
-            }
+            //var item = selector.Items[IndexOfItemToSelect];
 
-            var button = AutomationElementFinder.FindElementsChildByType<Button>(listBoxItem);
-            if (button != null) // Workaround for nasty lists that use buttons instead of the list select method
-            {
-                // automate the invoke
-                var buttonPeer = FrameworkElementAutomationPeer.CreatePeerForElement(button);
-                var pattern = buttonPeer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                if (pattern == null)
-                {
-                    SendNotFoundResult(string.Format("SelectorItemCommand: Could not find the invoke pattern : {0}",
-                                                     identifier.ToIdOrName()));
-                    return;
-                }
+            //var identifier = new AutomationIdentifier {DisplayedText = item.ToString()};
+            //var listBoxItem = AutomationElementFinder.FindElement(identifier);
+            //if (listBoxItem == null)
+            //{
+            //    SendNotFoundResult(string.Format("SelectorItemCommand: Could not find the list box item element : {0}",
+            //                                     identifier.ToIdOrName()));
+            //    return;
+            //}
 
-                try
-                {
-                    pattern.Invoke();
-                }
-                catch (Exception exception)
-                {
-                    SendExceptionFailedResult(exception);
-                }
-            }
-            else
-            {
-                // automate the select
-                var listBoxPeer = FrameworkElementAutomationPeer.CreatePeerForElement(listBoxItem);
-                var pattern = listBoxPeer.GetPattern(PatternInterface.SelectionItem) as ISelectionItemProvider;
-                if (pattern == null)
-                {
-                    SendNotFoundResult(string.Format("SelectorItemCommand: Could not find the select pattern : {0}",
-                                                     identifier.ToIdOrName()));
-                    return;
-                }
+            //var button = AutomationElementFinder.FindElementsChildByType<Button>(listBoxItem);
+            //if (button != null) // Workaround for nasty lists that use buttons instead of the list select method
+            //{
+            //    // automate the invoke
+            //    var buttonPeer = FrameworkElementAutomationPeer.CreatePeerForElement(button);
+            //    var pattern = buttonPeer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+            //    if (pattern == null)
+            //    {
+            //        SendNotFoundResult(string.Format("SelectorItemCommand: Could not find the invoke pattern : {0}",
+            //                                         identifier.ToIdOrName()));
+            //        return;
+            //    }
 
-                try
-                {
-                    pattern.Select();
-                }
-                catch (Exception exception)
-                {
-                    SendExceptionFailedResult(exception);
-                }
-            }
+            //    try
+            //    {
+            //        pattern.Invoke();
+            //    }
+            //    catch (Exception exception)
+            //    {
+            //        SendExceptionFailedResult(exception);
+            //    }
+            //}
+            //else
+            //{
+            //    // automate the select
+            //    var listBoxPeer = FrameworkElementAutomationPeer.CreatePeerForElement(listBoxItem);
+            //    var pattern = listBoxPeer.GetPattern(PatternInterface.SelectionItem) as ISelectionItemProvider;
+            //    if (pattern == null)
+            //    {
+            //        SendNotFoundResult(string.Format("SelectorItemCommand: Could not find the select pattern : {0}",
+            //                                         identifier.ToIdOrName()));
+            //        return;
+            //    }
+
+            //    try
+            //    {
+            //        pattern.Select();
+            //    }
+            //    catch (Exception exception)
+            //    {
+            //        SendExceptionFailedResult(exception);
+            //    }
+            //}
             SendSuccessResult();
         }
     }
