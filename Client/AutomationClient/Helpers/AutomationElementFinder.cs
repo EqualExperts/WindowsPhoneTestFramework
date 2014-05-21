@@ -206,7 +206,7 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient.Helpers
                     if (frameworkElement == null)
                         return false;
 
-                    var name = frameworkElement.GetValue(AutomationProperties.NameProperty);
+                    var name = frameworkElement.GetValue(FrameworkElement.NameProperty);
                     if (name == null)
                         return false;
 

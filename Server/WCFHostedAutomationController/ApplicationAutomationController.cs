@@ -226,7 +226,6 @@ namespace WindowsPhoneTestFramework.Server.WCFHostedAutomationController
             {
                 return false;
             }
-
             return positionResult.Height + positionResult.Width > 0;
         }
 

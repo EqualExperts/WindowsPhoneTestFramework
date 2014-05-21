@@ -13,6 +13,7 @@ using System.Linq;
 using System.Windows.Automation;
 using Microsoft.Phone.Controls;
 using WindowsPhoneTestFramework.Client.AutomationClient.Helpers;
+using System.Windows;
 
 namespace WindowsPhoneTestFramework.Client.AutomationClient.Remote
 {
@@ -84,7 +85,7 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient.Remote
                 foreach (var pivotItem in pivot.Items.Cast<PivotItem>())
                 {
                     if (pivotItem.Name.ToLowerInvariant().StartsWith(PivotName.ToLowerInvariant()) ||
-                        pivotItem.GetValue(AutomationProperties.NameProperty)
+                        pivotItem.GetValue(FrameworkElement.NameProperty)
                                  .ToString()
                                  .ToLowerInvariant()
                                  .StartsWith(PivotName.ToLowerInvariant()))
@@ -140,7 +141,7 @@ namespace WindowsPhoneTestFramework.Client.AutomationClient.Remote
                     pano.Items.Cast<PanoramaItem>()
                         .FirstOrDefault(item => item.Name.ToLowerInvariant().StartsWith(PivotName.ToLowerInvariant())
                                                 ||
-                                                item.GetValue(AutomationProperties.NameProperty)
+                                                item.GetValue(FrameworkElement.NameProperty)
                                                     .ToString()
                                                     .StartsWith(PivotName.ToLowerInvariant()));
 

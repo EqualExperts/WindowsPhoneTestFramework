@@ -41,6 +41,21 @@ namespace WindowsPhoneTestFramework.Test.EmuSteps.StepDefinitions
             Assert.IsTrue(result, "Failed to wait for text '{0}'", text);
         }
 
+        [StepDefinition(@"I wait for the text ""(.*)"" to appear within parent ""(.*)""")]
+        public void ThenIWaitForTheTextToAppearInParent(string text, string parentId)
+        {
+            bool result;
+            if (string.IsNullOrEmpty(parentId))
+            {
+                result = Emu.ApplicationAutomationController.WaitForText(text);
+            }
+            else
+            {
+                result = Emu.ApplicationAutomationController.WaitForControlOrText(text, 0, parentId);
+            }
+            Assert.IsTrue(result, "Failed to wait for text '{0}'", text);
+        }
+
         [StepDefinition(@"I wait (\d+\.?\d*) seconds$")]
         public void ThenIWait(double countSeconds)
         {

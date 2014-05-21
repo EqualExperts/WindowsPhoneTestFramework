@@ -84,7 +84,7 @@ namespace WindowsPhoneTestFramework.Server.WindowsPhoneDeviceController
                 {
                     InvokeTrace(string.Format("device name: {0}", d.Name));
                 }
-                var device = devices.FirstOrDefault(d => d.Name == WpDeviceNameBase);
+                var device = devices.FirstOrDefault(d => (d.Name == WpDeviceNameBase));
 
                 if (device == null)
                 {
